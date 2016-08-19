@@ -5,6 +5,8 @@
  */
 package br.edu.uricer;
 
+import java.util.ArrayList;
+import java.util.List;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -18,28 +20,39 @@ import static org.junit.Assert.*;
  */
 public class SequenciaTest {
     
-    public SequenciaTest() {
-    }
-    
-    @BeforeClass
-    public static void setUpClass() {
-    }
-    
-    @AfterClass
-    public static void tearDownClass() {
-    }
+    Sequencia numbers;
     
     @Before
-    public void setUp() {
+    public void inicializa(){
+        
+        numbers = new Sequencia();
+        numbers.setValores(6);
+        numbers.setValores(9);
+        numbers.setValores(15);
+        numbers.setValores(-2);
+        numbers.setValores(92);
+        numbers.setValores(11);
+    }    
+    
+    @Test
+    public void chekMin(){        
+        assertEquals(-2, numbers.getMinimo());        
     }
     
-    @After
-    public void tearDown() {
+    @Test
+    public void chekMax(){        
+        assertEquals(92, numbers.getMaximo());        
     }
-
-    // TODO add test methods here.
-    // The methods must be annotated with annotation @Test. For example:
-    //
-    // @Test
-    // public void hello() {}
+    
+    @Test
+    public void chekSize(){        
+        assertEquals(6, numbers.getSize());        
+    }
+    
+    @Test
+    public void chekMedia(){     
+        double expected = 21.833333333333332;
+        double actual = numbers.getMedia();
+        assertEquals(expected, actual, actual);
+    }
 }
